@@ -1,22 +1,23 @@
-package pl.coderslab.user;
+package pl.coderslab.admin;
 
 import lombok.*;
-
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
+@Table(name = "admin")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class User {
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long Id;
     private String name;
     private String email;
-    private String password;
+    @ColumnDefault("true")
+    private boolean admin;
 }
