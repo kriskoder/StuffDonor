@@ -2,7 +2,6 @@ package pl.coderslab.user;
 
 import lombok.*;
 
-
 import javax.persistence.*;
 
 @Entity
