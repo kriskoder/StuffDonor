@@ -16,4 +16,4 @@ App is designated to make doantion process easier. Logged user in few simple ste
 
 ### How to open this project
 
-StuffDonor is build as a Maven Project and runs on Tomcat Server. It also has to be connected to MySQL database. All dependencies are already in pom.xml.
+StuffDonor is built as a Maven Project and runs on Tomcat Server. It also has to be connected to MySQL database. All dependencies are already in pom.xml.
