@@ -1,4 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -6,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
+<%--   <script src="<c:url value="/resources/css/style.css" />" ></script>--%>
+    <link rel="stylesheet" href="../../../resources/css/style.css"/>
   </head>
   <body>
     <header>
@@ -31,15 +34,16 @@
       <form:form method="post" modelAttribute="user">
         <div class="form-group">
           <form:input type="email" path="email" placeholder="Email"/>
-        <form:errors path="email" cssClass="error"/>
+        <form:errors path="email" class="error"/>
         </div>
         <div class="form-group">
           <form:input type="password" path="password" placeholder="Hasło" />
-        <form:errors path="password" cssClass="error"/>
+        <form:errors path="password" class="error"/>
         </div>
-<%--        <div class="form-group">--%>
-<%--          <input type="password" name="password2" placeholder="Powtórz hasło" />--%>
-<%--        </div>--%>
+        <div class="form-group">
+          <form:input type="password" path="passwordCompare" placeholder="Powtórz hasło" />
+          <form:errors  path="passwordCompare" class="error"/>
+        </div>
 
         <div class="form-group form-group--buttons">
           <a href="../login.jsp" class="btn btn--without-border">Zaloguj się</a>
