@@ -14,16 +14,16 @@
 <header class="header--main-page">
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="" class="btn btn--small btn--without-border">Zaloguj</a></li>
-            <li><a href="../register" class="btn btn--small btn--highlighted">Załóż konto</a></li>
+            <li><a href="<c:url value="../login"/>" class="btn btn--small btn--without-border">Zaloguj</a></li>
+            <li><a href="<c:url value="../register"/>" class="btn btn--small btn--highlighted">Załóż konto</a></li>
         </ul>
 
         <ul>
-            <li><a href="/" class="btn btn--without-border active">Start</a></li>
-            <li><a href="#" class="btn btn--without-border">O co chodzi?</a></li>
+            <li><a href="<c:url value="../"/>" class="btn btn--without-border active">Start</a></li>
+            <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="#about-us" class="btn btn--without-border">O nas</a></li>
-            <li><a href="#" class="btn btn--without-border">Fundacje i organizacje</a></li>
-            <li><a href="#" class="btn btn--without-border">Kontakt</a></li>
+            <li><a href="#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
+            <li><a href="#contact" class="btn btn--without-border">Kontakt</a></li>
         </ul>
     </nav>
 
@@ -67,7 +67,7 @@
     </div>
 </section>
 
-<section class="steps">
+<section class="steps" id="steps">
     <h2>Wystarczą 4 proste kroki</h2>
 
     <div class="steps--container">
@@ -107,7 +107,7 @@
     </div>
 </section>
 
-<section class="help">
+<section class="help" id="help">
     <h2>Komu pomagamy?</h2>
 
     <ul class="help--buttons">
@@ -261,7 +261,7 @@
 </section>
 
 <footer>
-    <div class="contact">
+    <div class="contact" id="contact">
         <h2>Skontaktuj się z nami</h2>
         <h3>Formularz kontaktowy</h3>
         <form class="form--contact">

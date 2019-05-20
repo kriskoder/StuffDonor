@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -14,12 +14,12 @@
 <header>
     <nav class="container container--70">
         <ul class="nav--actions">
-            <li><a href="#">Zaloguj</a></li>
-            <li class="highlighted"><a href="#">Załóż konto</a></li>
+            <li><a href="<c:url value="../login"/>">Zaloguj</a></li>
+            <li class="highlighted"><a href="<c:url value="../register"/>">Załóż konto</a></li>
         </ul>
 
         <ul>
-            <li><a href="/">Start</a></li>
+            <li><a href="<c:url value="/"/>">Start</a></li>
             <li><a href="#">O co chodzi?</a></li>
             <li><a href="#">O nas</a></li>
             <li><a href="#">Fundacje i organizacje</a></li>
@@ -43,13 +43,13 @@
             <form:input type="password" path="password" placeholder="Hasło"/>
             <form:errors path="password" class="error"/>
         </div>
-        <div class="form-group">
-            <form:input type="password" path="passwordCompare" placeholder="Powtórz hasło"/>
-            <form:errors path="passwordCompare" class="error"/>
-        </div>
+<%--        <div class="form-group">--%>
+<%--            <form:input type="password" path="passwordCompare" placeholder="Powtórz hasło"/>--%>
+<%--            <form:errors path="passwordCompare" class="error"/>--%>
+<%--        </div>--%>
 
         <div class="form-group form-group--buttons">
-            <a href="../login/login.jsp" class="btn btn--without-border">Zaloguj się</a>
+            <a href="<c:url value="/login"/>" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
         </div>
     </form:form>
@@ -81,12 +81,8 @@
     <div class="bottom-line">
         <span class="bottom-line--copy">Copyright &copy; 2018</span>
         <div class="bottom-line--icons">
-            <a href="#" class="btn btn--small"
-            ><img src="<c:url value="/resources/images/icon-facebook.svg"/>"/>
-                /></a>
-            <a href="#" class="btn btn--small"
-            ><img src="<c:url value="/resources/images/icon-instagram.svg"/>"/>
-            /></a>
+            <a href="#" class="btn btn--small"><img src="<c:url value="/resources/images/icon-facebook.svg"/>"/>/></a>
+            <a href="#" class="btn btn--small"><img src="<c:url value="/resources/images/icon-instagram.svg"/>"/>/></a>
         </div>
     </div>
 </footer>
