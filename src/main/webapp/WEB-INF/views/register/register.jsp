@@ -19,7 +19,7 @@
         </ul>
 
         <ul>
-            <li><a href="#">Start</a></li>
+            <li><a href="/">Start</a></li>
             <li><a href="#">O co chodzi?</a></li>
             <li><a href="#">O nas</a></li>
             <li><a href="#">Fundacje i organizacje</a></li>
@@ -31,6 +31,10 @@
 <section class="login-page">
     <h2>Załóż konto</h2>
     <form:form method="post" modelAttribute="user">
+        <div class="form-group">
+            <form:input type="text" path="username" placeholder="Name"/>
+            <form:errors path="username" class="error"/>
+        </div>
         <div class="form-group">
             <form:input type="email" path="email" placeholder="Email"/>
             <form:errors path="email" class="error"/>
@@ -45,7 +49,7 @@
         </div>
 
         <div class="form-group form-group--buttons">
-            <a href="../login.jsp" class="btn btn--without-border">Zaloguj się</a>
+            <a href="../login/login.jsp" class="btn btn--without-border">Zaloguj się</a>
             <button class="btn" type="submit">Załóż konto</button>
         </div>
     </form:form>

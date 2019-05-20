@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.user.User;
-import pl.coderslab.user.UserService;
+import pl.coderslab.user.UserServiceImpl;
 
 import javax.validation.Valid;
 
@@ -16,10 +16,10 @@ import javax.validation.Valid;
 @RequestMapping("/register")
 public class RegisterController {
 
-    private UserService userService;
+    private final UserServiceImpl userServiceImpl;
 
-    public RegisterController(UserService userService) {
-        this.userService = userService;
+    public RegisterController(UserServiceImpl userServiceImpl) {
+        this.userServiceImpl = userServiceImpl;
     }
 
     @GetMapping("")
@@ -33,7 +33,7 @@ public class RegisterController {
         if(bindingResult.hasErrors()){
             return "register/register";
         }
-        userService.create(user);
+        userServiceImpl.saveUser(user);
         return "login/login";
     }
 }
