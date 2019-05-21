@@ -34,6 +34,6 @@ public class RegisterController {
             return "register/register";
         }
         userServiceImpl.saveUser(user);
-        return "login/login";
+        return "redirect:/login";
     }
 }

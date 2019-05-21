@@ -12,16 +12,4 @@ public class HomeController {
     public String home() {
         return "home/index";
     }
-
-    @RequestMapping("/user")
-    @ResponseBody
-    public String user() {
-        return "user";
-    }
-
-    @RequestMapping("/admin")
-    @ResponseBody
-    public String admin() {
-        return "admin";
-    }
 }

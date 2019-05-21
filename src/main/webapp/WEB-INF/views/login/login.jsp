@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pl">
@@ -27,17 +28,16 @@
     </header>
     <section class="login-page">
       <h2>Zaloguj się</h2>
-      <form>
+      <form  th:action="@{/login}" method="post">
         <div class="form-group">
-          <input type="email" name="email" placeholder="Email" />
+          <input type="text" name="username" placeholder="UserName" />
         </div>
         <div class="form-group">
           <input type="password" name="password" placeholder="Hasło" />
           <a href="#" class="btn btn--small btn--without-border reset-password">Przypomnij hasło</a>
         </div>
-
         <div class="form-group form-group--buttons">
-          <a href="<c:url value="../register"/>"class="btn btn--without-border">Załóż konto</a>
+          <a href="<c:url value="../register"/>" class="btn btn--without-border">Załóż konto</a>
           <button class="btn" type="submit">Zaloguj się</button> 
         </div>
       </form>
