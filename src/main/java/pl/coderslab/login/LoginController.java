@@ -23,15 +23,14 @@ public class LoginController {
     }
 
     @RequestMapping("/test")
-    @ResponseBody
-    public String test() {
-        return "test";
-//        UserDetails usero = springDataUserDetailsService.loadUserByUsername(username);
-//        if (BCrypt.checkpw(password, usero.getPassword())) {
-//            return "form";
-//        }
-//        else {
-//            return "redirect:../login";
-//        }
+    public String test(@RequestParam("username") String username, @RequestParam("password") String password) {
+        UserDetails usero = springDataUserDetailsService.loadUserByUsername(username);
+        if (BCrypt.checkpw(password, usero.getPassword())) {
+            usero.getAuthorities();
+            return "form";
+        }
+        else {
+            return "redirect:../login";
+        }
     }
 }
