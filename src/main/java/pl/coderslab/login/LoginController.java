@@ -1,11 +1,11 @@
 package pl.coderslab.login;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.user.CurrentUser;
 import pl.coderslab.user.SpringDataUserDetailsService;
-import pl.coderslab.user.UserService;
+import pl.coderslab.user.User;
 
 @Controller
 @RequestMapping("")
@@ -23,14 +23,10 @@ public class LoginController {
     }
 
     @RequestMapping("/test")
-    public String test(@RequestParam("username") String username, @RequestParam("password") String password) {
-        UserDetails usero = springDataUserDetailsService.loadUserByUsername(username);
-        if (BCrypt.checkpw(password, usero.getPassword())) {
-            usero.getAuthorities();
-            return "form";
-        }
-        else {
-            return "redirect:../login";
-        }
+    @ResponseBody
+    public String test(@AuthenticationPrincipal CurrentUser currentUser) {
+        User user =  currentUser.getUser();
+        return "this is logged user " + user.getUsername() + " " + user.getEmail();
     }
 }
+

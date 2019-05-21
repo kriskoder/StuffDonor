@@ -27,7 +27,7 @@
     </header>
     <section class="login-page">
       <h2>Zaloguj się</h2>
-      <form method="post" action="/test">
+      <form method="post">
         <div class="form-group">
           <input type="text" name="username" placeholder="UserName" />
         </div>
@@ -37,7 +37,8 @@
         </div>
         <div class="form-group form-group--buttons">
           <a href="<c:url value="../register"/>" class="btn btn--without-border">Załóż konto</a>
-          <button class="btn" type="submit">Zaloguj się</button> 
+          <button class="btn" type="submit">Zaloguj się</button>
+          <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </div>
       </form>
     </section>
