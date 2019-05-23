@@ -11,22 +11,9 @@ import pl.coderslab.user.User;
 @RequestMapping("")
 public class LoginController {
 
-    private final SpringDataUserDetailsService springDataUserDetailsService;
-
-    public LoginController(SpringDataUserDetailsService springDataUserDetailsService) {
-        this.springDataUserDetailsService = springDataUserDetailsService;
-    }
-
     @GetMapping("/login")
     public String login() {
         return "login/login";
-    }
-
-    @RequestMapping("/test")
-    @ResponseBody
-    public String test(@AuthenticationPrincipal CurrentUser currentUser) {
-        User user =  currentUser.getUser();
-        return "this is logged user " + user.getUsername() + " " + user.getEmail();
     }
 }
 
