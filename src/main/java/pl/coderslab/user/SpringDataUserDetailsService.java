@@ -13,12 +13,8 @@ import java.util.Set;
 
 public class SpringDataUserDetailsService implements UserDetailsService {
 
-    private UserServiceImpl userServiceImpl;
-
     @Autowired
-    public void setUserRepository(UserServiceImpl userServiceImpl){
-        this.userServiceImpl = userServiceImpl;
-    }
+    private UserServiceImpl userServiceImpl;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

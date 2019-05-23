@@ -1,21 +1,29 @@
 package pl.coderslab.form;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.user.CurrentUser;
-import pl.coderslab.user.User;
 
 @Controller
 @RequestMapping("/form")
 public class FormController {
 
-    @RequestMapping("/user")
-    public String homneUser(@AuthenticationPrincipal CurrentUser currentUser, @ModelAttribute Model model){
-        User user = currentUser.getUser();
-        model.addAttribute("username", user.getUsername());
+    @Autowired
+    FormRepository formRepository;
+
+    @GetMapping("/user")
+    public String user(Model model) {
+        model.addAttribute("form", new Form());
         return "form/form";
+    }
+
+    @PostMapping("/user")
+    public String user(@ModelAttribute Form form) {
+        formRepository.save(form);
+        return "redirect:/";
     }
 }

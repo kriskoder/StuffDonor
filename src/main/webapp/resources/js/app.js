@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
 
       /**
+      /**
        * Pagination buttons
        */
       this.$el.addEventListener("click", e => {
@@ -211,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function() {
       });
 
       // Form submit
-      this.$form.querySelector("form").addEventListener("submit", e => this.submit(e));
+      // this.$form.querySelector("form").addEventListener("submit", e => this.submit(e));
     }
 
     /**
@@ -231,8 +232,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
 
-      this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 6;
-      this.$step.parentElement.hidden = this.currentStep >= 6;
+      this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
+    this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
     }

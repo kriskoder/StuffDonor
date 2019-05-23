@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -5,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" />
+    <script src="<c:url value="/resources/js/app.js"/>" type="text/javascript"></script>
+    <link rel="stylesheet" href=" <c:url value="/resources/css/style.css"/>"/>
   </head>
   <body>
     <header class="header--form-page">
@@ -17,7 +21,7 @@
               <li><a href="#">Profil</a></li>
               <li><a href="#">Ustawienia</a></li>
               <li><a href="#">Moje zbiórki</a></li>
-              <li><a href="#">Wyloguj</a></li>
+              <li><a href="<c:url value="/logout"/>">Wyloguj</a></li>
             </ul>
           </li>
         </ul>
@@ -90,9 +94,9 @@
       </div>
 
       <div class="form--steps-container">
-        <div class="form--steps-counter">Krok <span>1</span>/5</div>
+        <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form>
+        <form:form method="post" modelAttribute="form">
           <!-- STEP 1: class .active is switching steps -->
           <div data-step="1" class="active">
             <h3>Zaznacz co chcesz oddać:</h3>
@@ -159,7 +163,7 @@
             <div class="form-group form-group--inline">
               <label>
                 Liczba 60l worków:
-                <input type="number" name="bags" step="1" min="1" />
+                <form:input type="number" name="bags" path="bagsNumber" step="1" min="1" />
               </label>
             </div>
 
@@ -169,80 +173,13 @@
             </div>
           </div>
 
-          <!-- STEP 3 -->
+          <!-- STEP 3-->
           <div data-step="3">
-            <h3>Lokalizacja:</h3>
-
-            <div class="form-group form-group--dropdown">
-              <select name="localization">
-                <option value="0">- wybierz -</option>
-                <option value="warsaw">Warszawa</option>
-                <option value="wroclaw">Wrocław</option>
-                <option value="poznan">Poznań</option>
-                <option value="gdansk">Gdańsk</option>
-              </select>
-            </div>
-
-            <div class="form-section">
-              <h4>Komu chcesz pomóc?</h4>
-              <div class="form-section--checkboxes">
-                <div class="form-group form-group--checkbox">
-                  <label>
-                    <input type="checkbox" name="help[]" value="children" />
-                    <span class="checkbox">dzieciom</span>
-                  </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                  <label>
-                    <input type="checkbox" name="help[]" value="mothers" />
-                    <span class="checkbox">samotnym matkom</span>
-                  </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                  <label>
-                    <input type="checkbox" name="help[]" value="homeless" />
-                    <span class="checkbox">bezdomnym</span>
-                  </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                  <label>
-                    <input type="checkbox" name="help[]" value="disabled" />
-                    <span class="checkbox">niepełnosprawnym</span>
-                  </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                  <label>
-                    <input type="checkbox" name="help[]" value="old" />
-                    <span class="checkbox">osobom starszym</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-section">
-              <h4>Wpisz nazwę konkretnej organizacji (opcjonalnie)</h4>
-              <div class="form-group">
-                <textarea rows="4" name="organization_search"></textarea>
-              </div>
-            </div>
-
-            <div class="form-group form-group--buttons">
-              <button type="button" class="btn prev-step">Wstecz</button>
-              <button type="button" class="btn next-step">Szukaj</button>
-            </div>
-          </div>
-
-          <!-- STEP 4 -->
-          <div data-step="4">
             <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
             <div class="form-group form-group--checkbox">
               <label>
-                <input type="radio" name="organization" value="old" />
+                <form:radiobutton name="organization" path="foundation" value="old1" />
                 <span class="checkbox radio"></span>
                 <span class="description">
                   <div class="title">Fundacja “Bez domu”</div>
@@ -256,7 +193,7 @@
 
             <div class="form-group form-group--checkbox">
               <label>
-                <input type="radio" name="organization" value="old" />
+                <form:radiobutton name="organization" path="foundation" value="old2" />
                 <span class="checkbox radio"></span>
                 <span class="description">
                   <div class="title">Fundacja “Dla dzieci"</div>
@@ -274,15 +211,15 @@
             </div>
           </div>
 
-          <!-- STEP 5 -->
-          <div data-step="5">
+          <!-- STEP 4 -->
+          <div data-step="4">
             <h3>Podaj adres oraz termin odbioru rzecz przez kuriera:</h3>
 
             <div class="form-section form-section--columns">
               <div class="form-section--column">
                 <h4>Adres odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Ulica <input type="text" name="address" /> </label>
+                  <label> Ulica <form:input type="text" name="address" path="pickUpAddress" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
@@ -305,7 +242,7 @@
               <div class="form-section--column">
                 <h4>Termin odbioru</h4>
                 <div class="form-group form-group--inline">
-                  <label> Data <input type="date" name="data" /> </label>
+                  <label> Data <form:input type="text" name="data" path="pickUpDate" /> </label>
                 </div>
 
                 <div class="form-group form-group--inline">
@@ -315,7 +252,7 @@
                 <div class="form-group form-group--inline">
                   <label>
                     Uwagi dla kuriera
-                    <textarea name="more_info" rows="5"></textarea>
+                    <form:textarea name="more_info" path="notes" rows="5"/>
                   </label>
                 </div>
               </div>
@@ -326,8 +263,8 @@
             </div>
           </div>
 
-          <!-- STEP 6 -->
-          <div data-step="6">
+          <!-- STEP 5 -->
+          <div data-step="5">
             <h3>Podsumowanie Twojej darowizny</h3>
 
             <div class="summary">
@@ -374,18 +311,18 @@
 
             <div class="form-group form-group--buttons">
               <button type="button" class="btn prev-step">Wstecz</button>
-              <button type="submit" class="btn">Potwierdzam</button>
+              <input type="submit" class="btn">Potwierdzam</input>
             </div>
           </div>
 
-          <!-- STEP 7 -->
-          <div data-step="7">
+          <!-- STEP 6 -->
+          <div data-step="6">
             <h2>
               Dziękujemy za przesłanie formularza Na maila prześlemy wszelkie
               informacje o odbiorze.
             </h2>
           </div>
-        </form>
+        </form:form>
       </div>
     </section>
 
@@ -416,15 +353,12 @@
         <span class="bottom-line--copy">Copyright &copy; 2018</span>
         <div class="bottom-line--icons">
           <a href="#" class="btn btn--small"
-            ><img src="images/icon-facebook.svg"
-          /></a>
+            ><img src="<c:url value="/resources/images/icon-facebook.svg"/>"/></a>
           <a href="#" class="btn btn--small"
-            ><img src="images/icon-instagram.svg"
+            ><img src="<c:url value="/resources/images/icon-instagram.svg"/>"/>
           /></a>
         </div>
       </div>
     </footer>
-
-    <script src="js/app.js"></script>
   </body>
 </html>
