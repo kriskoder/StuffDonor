@@ -34,4 +34,8 @@ public class UserServiceImpl implements UserService {
         user.setRole(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
+
+    public User findUserbyId(Long id){
+        return userRepository.getOne(id);
+    }
 }

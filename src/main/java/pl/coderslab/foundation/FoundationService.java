@@ -1,4 +1,4 @@
-package pl.coderslab.Foundation;
+package pl.coderslab.foundation;
 
 import org.springframework.stereotype.Service;
 
@@ -14,5 +14,9 @@ public class FoundationService {
 
     public List<Foundation> findAllFoundations() {
         return foundationRepository.findAll();
+    }
+
+    public Foundation findById(Long id){
+        return foundationRepository.getOne(id);
     }
 }

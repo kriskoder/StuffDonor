@@ -1,4 +1,4 @@
-package pl.coderslab.Foundation;
+package pl.coderslab.foundation;
 
 import lombok.*;
 
