@@ -2,6 +2,7 @@ package pl.coderslab.user;
 
 import lombok.*;
 import pl.coderslab.role.Role;
+import pl.coderslab.validator.SamePassword;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -15,7 +16,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-//@SamePassword
+@SamePassword
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,9 +28,9 @@ public class User {
     private String email;
     @NotEmpty
     private String password;
-//    @NotEmpty
-//    @Transient
-//    private String passwordCompare;
+    @NotEmpty
+    @Transient
+    private String passwordCompare;
     private int enabled;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
