@@ -1,24 +1,26 @@
 package pl.coderslab.form;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.Foundation.FoundationService;
+import org.springframework.web.bind.annotation.*;
+import pl.coderslab.foundation.FoundationService;
+import pl.coderslab.user.CurrentUser;
+import pl.coderslab.user.UserServiceImpl;
 
 @Controller
 @RequestMapping("/form")
 public class FormController {
 
-    @Autowired
-    private FormRepository formRepository;
-
-    @Autowired
+    private FormService formService;
     private FoundationService foundationService;
+    private UserServiceImpl userServiceImpl;
 
+    public FormController(FormService formService, FoundationService foundationService, UserServiceImpl userServiceImpl) {
+        this.formService = formService;
+        this.foundationService = foundationService;
+        this.userServiceImpl = userServiceImpl;
+    }
 
     @GetMapping("/user")
     public String user(Model model) {
@@ -28,8 +30,10 @@ public class FormController {
     }
 
     @PostMapping("/user")
-    public String user(@ModelAttribute Form form) {
-        formRepository.save(form);
-        return "redirect:/";
+    public String user(@ModelAttribute Form form, @RequestParam("foundationId") Long id, @AuthenticationPrincipal CurrentUser currentUser) {
+        form.setUser(userServiceImpl.findUserbyId(currentUser.getUser().getId()));
+        form.setFoundation(foundationService.findById(id));
+        formService.save(form);
+        return "form/form-confirmation";
     }
 }
