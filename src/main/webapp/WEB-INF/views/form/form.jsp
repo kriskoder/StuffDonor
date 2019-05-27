@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
     <script src="<c:url value="/resources/js/app.js"/>" type="text/javascript"></script>
     <link rel="stylesheet" href=" <c:url value="/resources/css/style.css"/>"/>
@@ -42,7 +42,7 @@
     <div class="slogan container container--90">
         <div class="slogan--item">
             <h1>
-                Oddaj rzeczy, których już nie chcesz<br />
+                Oddaj rzeczy, których już nie chcesz<br/>
                 <span class="uppercase">potrzebującym</span>
             </h1>
 
@@ -129,7 +129,7 @@
 
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <input type="checkbox" name="products[]" value="toys" />
+                        <input type="checkbox" name="products[]" value="toys"/>
                         <span class="checkbox"></span>
                         <span class="description">zabawki</span>
                     </label>
@@ -137,7 +137,7 @@
 
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <input type="checkbox" name="products[]" value="books" />
+                        <input type="checkbox" name="products[]" value="books"/>
                         <span class="checkbox"></span>
                         <span class="description">książki</span>
                     </label>
@@ -145,7 +145,7 @@
 
                 <div class="form-group form-group--checkbox">
                     <label>
-                        <input type="checkbox" name="products[]" value="other" />
+                        <input type="checkbox" name="products[]" value="other"/>
                         <span class="checkbox"></span>
                         <span class="description">inne</span>
                     </label>
@@ -163,7 +163,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" name="bags" path="bagsNumber" step="1" min="1" />
+                        <form:input type="number" name="bags" path="bagsNumber" step="1" min="1"/>
                     </label>
                 </div>
 
@@ -176,34 +176,18 @@
             <!-- STEP 3-->
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <form:radiobutton name="organization" path="foundation" value="old1" />
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                  <div class="title">Fundacja “Bez domu”</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc dla osób nie posiadających miejsca
-                    zamieszkania
-                  </div>
-                </span>
-                    </label>
-                </div>
-
-                <div class="form-group form-group--checkbox">
-                    <label>
-                        <form:radiobutton name="organization" path="foundation" value="old2" />
-                        <span class="checkbox radio"></span>
-                        <span class="description">
-                  <div class="title">Fundacja “Dla dzieci"</div>
-                  <div class="subtitle">
-                    Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji
-                    życiowej.
-                  </div>
-                </span>
-                    </label>
-                </div>
+                <c:forEach items="${foundations}" var="var">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <form:radiobutton name="organization" path="foundation" value="${var.name}"/>
+                            <span class="checkbox radio"></span>
+                            <span class="description">
+                                <div class="title">Fundacja: "${var.name}"</div>
+                                <div class="subtitle">Cel i misja: ${var.description}</div>
+                            </span>
+                        </label>
+                    </div>
+                </c:forEach>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
@@ -219,22 +203,22 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input type="text" name="address" path="pickUpAddress" /> </label>
+                            <label> Ulica <form:input type="text" name="address" path="pickUpAddress"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="city" /> </label>
+                            <label> Miasto <input type="text" name="city"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <input type="text" name="postcode" />
+                                Kod pocztowy <input type="text" name="postcode"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="phone" name="phone" />
+                                Numer telefonu <input type="phone" name="phone"/>
                             </label>
                         </div>
                     </div>
@@ -242,11 +226,11 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input type="text" name="data" path="pickUpDate" /> </label>
+                            <label> Data <form:input type="text" name="data" path="pickUpDate"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time" /> </label>
+                            <label> Godzina <input type="time" name="time"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -311,7 +295,7 @@
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <input type="submit" class="btn">Potwierdzam</input>
+                    <button type="submit" class="btn"/>
                 </div>
             </div>
 
@@ -332,10 +316,10 @@
         <h3>Formularz kontaktowy</h3>
         <form class="form--contact">
             <div class="form-group form-group--50">
-                <input type="text" name="name" placeholder="Imię" />
+                <input type="text" name="name" placeholder="Imię"/>
             </div>
             <div class="form-group form-group--50">
-                <input type="text" name="surname" placeholder="Nazwisko" />
+                <input type="text" name="surname" placeholder="Nazwisko"/>
             </div>
 
             <div class="form-group">
