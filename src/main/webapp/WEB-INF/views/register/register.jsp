@@ -43,10 +43,10 @@
             <form:input type="password" path="password" placeholder="Hasło"/>
             <form:errors path="password" class="error"/>
         </div>
-<%--        <div class="form-group">--%>
-<%--            <form:input type="password" path="passwordCompare" placeholder="Powtórz hasło"/>--%>
-<%--            <form:errors path="passwordCompare" class="error"/>--%>
-<%--        </div>--%>
+        <div class="form-group">
+            <form:input type="password" path="passwordCompare" placeholder="Powtórz hasło"/>
+            <form:errors path="passwordCompare" class="error"/>
+        </div>
 
         <div class="form-group form-group--buttons">
             <a href="<c:url value="/login"/>" class="btn btn--without-border">Zaloguj się</a>
