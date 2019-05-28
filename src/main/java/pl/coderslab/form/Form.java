@@ -4,14 +4,16 @@ package pl.coderslab.form;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.coderslab.foundation.Foundation;
+import pl.coderslab.stuff.Stuff;
 import pl.coderslab.user.User;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
-@Table(name="donation")
+@Table(name="form")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,6 +25,8 @@ public class Form {
     private Long id;
     @ManyToOne
     private User user;
+    @ManyToMany
+    private List<Stuff> stuffType;
     private int bagsNumber;
     @ManyToOne
     private Foundation foundation;
