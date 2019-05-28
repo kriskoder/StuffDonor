@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FormService {
 
-    FormRepository formRepository;
+   private FormRepository formRepository;
 
     public FormService(FormRepository formRepository) {
         this.formRepository = formRepository;

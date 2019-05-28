@@ -7,7 +7,7 @@ import java.util.List;
 @Service
 public class StuffService {
 
-    StuffRepository stuffRepository;
+    private StuffRepository stuffRepository;
 
     StuffService(StuffRepository stuffRepository) {
         this.stuffRepository = stuffRepository;
@@ -15,5 +15,9 @@ public class StuffService {
 
     public List<Stuff> getAllStuffTypes() {
         return stuffRepository.findAll();
+    }
+
+    public Stuff getById(Long id){
+        return stuffRepository.getOne(id);
     }
 }
