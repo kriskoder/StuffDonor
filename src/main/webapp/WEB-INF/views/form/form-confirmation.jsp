@@ -28,7 +28,7 @@
 		</ul>
 
 		<ul>
-			<li><a href="#" class="btn btn--without-border active">Start</a></li>
+			<li><a href="<c:url value="../"/>" class="btn btn--without-border active">Start</a></li>
 			<li><a href="#" class="btn btn--without-border">O co chodzi?</a></li>
 			<li><a href="#" class="btn btn--without-border">O nas</a></li>
 			<li><a href="#" class="btn btn--without-border">Fundacje i organizacje</a></li>
@@ -67,8 +67,8 @@
 	<div class="bottom-line">
 		<span class="bottom-line--copy">Copyright &copy; 2018</span>
 		<div class="bottom-line--icons">
-			<a href="#" class="btn btn--small"><img src="images/icon-facebook.svg"/></a>
-			<a href="#" class="btn btn--small"><img src="images/icon-instagram.svg"/></a>
+			<a href="#" class="btn btn--small"><img src="<c:url value="/resources/images/icon-facebook.svg"/>"/></a>
+			<a href="#" class="btn btn--small"><img src="<c:url value="/resources/images/icon-instagram.svg"/>"/>/></a>
 		</div>
 	</div>
 </footer>

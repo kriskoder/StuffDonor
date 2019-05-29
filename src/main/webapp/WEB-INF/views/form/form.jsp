@@ -27,7 +27,7 @@
         </ul>
 
         <ul>
-            <li><a href="#" class="btn btn--without-border active">Start</a></li>
+            <li><a href="<c:url value="../"/>" class="btn btn--without-border active">Start</a></li>
             <li><a href="#" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="#" class="btn btn--without-border">O nas</a></li>
             <li><a href="#" class="btn btn--without-border">Fundacje i organizacje</a></li>
@@ -97,8 +97,7 @@
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
                 <c:forEach items="${stuffList}" var="var">
-                    <%--                    <div class="form-group form-group--checkbox">--%>
-                    <div>
+                    <div class="form-group form-group--checkbox">
                         <label>
                             <form:checkbox path="stuffType" value="${var.id}"/>
                             <span class="checkbox"></span>
@@ -106,15 +105,6 @@
                         </label>
                     </div>
                 </c:forEach>
-
-
-                    <%--				<div class="form-group form-group--checkbox">--%>
-                    <%--					<label>--%>
-                    <%--						<input type="checkbox" name="products[]" value="clothes-useless"/>--%>
-                    <%--						<span class="checkbox"></span>--%>
-                    <%--						<span class="description">ubrania, do wyrzucenia</span>--%>
-                    <%--					</label>--%>
-                    <%--				</div>--%>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Dalej</button>
@@ -127,7 +117,7 @@
 
                 <div class="form-group form-group--inline">
                     <label> Liczba 60l worków:
-                        <form:input type="number" name="bags" path="bagsNumber" step="1" min="1"/>
+                        <form:input type="number" path="bagsNumber" step="1" min="1"/>
                     </label>
                 </div>
 
@@ -223,11 +213,11 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text">4 worki ubrań w dobrym stanie dla dzieci</span>
+                                <span id="bagsOf" class="summary--text"></span>
                             </li>
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text">Dla fundacji "Mam marzenie" w Warszawie</span>
+                                <span id="forFoundation" class="summary--text">Dla fundacji "Mam marzenie" w Warszawie</span>
                             </li>
                         </ul>
                     </div>
