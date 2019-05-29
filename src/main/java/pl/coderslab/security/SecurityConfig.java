@@ -6,6 +6,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import pl.coderslab.authenticationHandler.SimpleUrlAuthenticationSuccessHandler;
 import pl.coderslab.user.SpringDataUserDetailsService;
 
 @Configuration
@@ -22,17 +24,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new SpringDataUserDetailsService();
     }
 
+    @Bean
+    public AuthenticationSuccessHandler successHandler(){
+        return new SimpleUrlAuthenticationSuccessHandler();
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().
                 authorizeRequests()
                 .antMatchers("/form/**").hasRole("USER")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/login").permitAll()
                 .antMatchers("/register").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/form/user")
+                .successHandler(successHandler())
                 .and()
                 .logout().logoutSuccessUrl("/");
     }

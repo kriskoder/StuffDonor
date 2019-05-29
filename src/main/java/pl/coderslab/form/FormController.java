@@ -25,7 +25,7 @@ public class FormController {
         this.stuffService = stuffService;
     }
 
-    @GetMapping("/user")
+    @GetMapping("")
     public String user(@AuthenticationPrincipal CurrentUser currentUser, Model model) {
         model.addAttribute("stuffList", stuffService.getAllStuffTypes());
         model.addAttribute("username", currentUser.getUsername());
@@ -34,7 +34,7 @@ public class FormController {
         return "form/form";
     }
 
-    @PostMapping("/user")
+    @PostMapping("")
     public String user(@ModelAttribute Form form, @RequestParam("foundationId") Long id, @AuthenticationPrincipal CurrentUser currentUser) {
         form.setUser(userServiceImpl.findUserbyId(currentUser.getUser().getId()));
         form.setFoundation(foundationService.findById(id));
