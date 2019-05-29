@@ -4,7 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.form.FormService;
+import pl.coderslab.foundation.Foundation;
 import pl.coderslab.foundation.FoundationService;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("")
@@ -36,5 +39,10 @@ public class HomeController {
     @ModelAttribute("numberOfDonations")
     public Long getNumberOfDonations() {
         return formService.numberOfDonations();
+    }
+
+    @ModelAttribute("foundations")
+    public List<Foundation> getAllFoundations(){
+        return foundationService.findAllFoundations();
     }
 }

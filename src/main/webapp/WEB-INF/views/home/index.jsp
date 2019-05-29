@@ -34,7 +34,7 @@
             </h1>
 
             <ul class="slogan--buttons">
-                <li><a href="<c:url value="/form/user"/>" class="btn btn--large">Oddaj rzeczy</a></li>
+                <li><a href="<c:url value="../form"/>" class="btn btn--large">Oddaj rzeczy</a></li>
                 <li><a href="#" class="btn btn--large">Zorganizuj zbiórkę</a></li>
             </ul>
         </div>
@@ -92,7 +92,7 @@
         </div>
     </div>
 
-    <a href="../register" class="btn btn--large">Załóż konto</a>
+    <a href="<c:url value="../register/"/>" class="btn btn--large">Załóż konto</a>
 </section>
 
 <section class="about-us" id="about-us">
@@ -121,44 +121,18 @@
             zajmują, komu pomagają i czego potrzebują.</p>
 
         <ul class="help--slides-items">
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
-                </div>
+            <c:forEach items="${foundations}" var="foundation">
+                <li>
+                    <div class="col">
+                        <div class="title">Fundacja: ${foundation.name}</div>
+                        <div class="subtitle">Cel i misja: ${foundation.description}</div>
+                    </div>
 
-                <div class="col">
-                    <div class="text">ubrania, jedzenie, sprzęt AGD, meble, zabawki</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-
-                <div class="col">
-                    <div class="text">ubrania, meble, zabawki</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-                <div class="col">
-                    <div class="text">ubrania, jedzenie, ciepłe koce</div>
-                </div>
-            </li>
-        </ul>
-
-        <ul class="help--slides-pagination">
-            <li><a href="#" class="btn btn--small btn--without-border active" data-page="1">1</a></li>
-            <li><a href="#" class="btn btn--small btn--without-border" data-page="2">2</a></li>
-            <li><a href="#" class="btn btn--small btn--without-border" data-page="3">3</a></li>
+                    <div class="col">
+                        <div class="text">${foundation.text}</div>
+                    </div>
+                </li>
+            </c:forEach>
         </ul>
     </div>
 
@@ -214,14 +188,6 @@
                 </div>
             </li>
         </ul>
-
-        <ul class="help--slides-pagination">
-            <li><a href="#" class="btn btn--small btn--without-border active" data-page="1">1</a></li>
-            <li><a href="#" class="btn btn--small btn--without-border" data-page="2">2</a></li>
-            <li><a href="#" class="btn btn--small btn--without-border" data-page="3">3</a></li>
-            <li><a href="#" class="btn btn--small btn--without-border" data-page="4">4</a></li>
-            <li><a href="#" class="btn btn--small btn--without-border" data-page="5">5</a></li>
-        </ul>
     </div>
 
     <!-- SLIDE 3 -->
@@ -251,34 +217,24 @@
                 </div>
             </li>
         </ul>
-
-        <ul class="help--slides-pagination">
-            <li><a href="#" class="btn btn--small btn--without-border active" data-page="1">1</a></li>
-            <li><a href="#" class="btn btn--small btn--without-border" data-page="2">2</a></li>
-        </ul>
     </div>
 </section>
 
 <footer>
     <div class="contact" id="contact">
         <h2>Skontaktuj się z nami</h2>
-        <h3>Formularz kontaktowy</h3>
         <form class="form--contact">
             <div class="form-group form-group--50"><input type="text" name="name" placeholder="Imię"/></div>
             <div class="form-group form-group--50"><input type="text" name="surname" placeholder="Nazwisko"/></div>
-
             <div class="form-group"><textarea name="message" placeholder="Wiadomość" rows="1"></textarea></div>
-
             <button class="btn" type="submit">Wyślij</button>
         </form>
     </div>
     <div class="bottom-line">
         <span class="bottom-line--copy">Copyright &copy; 2018</span>
         <div class="bottom-line--icons">
-            <a href="#" class="btn btn--small"><img
-                    src="<c:url value="/resources/images/icon-facebook.svg"/> "/></a> <a href="#"
-                                                                                                         class="btn btn--small"><img
-                src="<c:url value="/resources/images/icon-instagram.svg"/>"></a>
+            <a href="#" class="btn btn--small"><img src="<c:url value="/resources/images/icon-facebook.svg"/>"/></a>
+            <a href="#" class="btn btn--small"><img src="<c:url value="/resources/images/icon-instagram.svg"/>"/></a>
         </div>
     </div>
 </footer>
