@@ -3,10 +3,11 @@ package pl.coderslab.foundation;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class FoundationService {
 
-   private final FoundationRepository foundationRepository;
+    private FoundationRepository foundationRepository;
 
     FoundationService(FoundationRepository foundationRepository) {
         this.foundationRepository = foundationRepository;
@@ -16,7 +17,11 @@ public class FoundationService {
         return foundationRepository.findAll();
     }
 
-    public Foundation findById(Long id){
+    public Foundation findById(Long id) {
         return foundationRepository.getOne(id);
+    }
+
+    public Long numberOfFoundation() {
+        return foundationRepository.count();
     }
 }

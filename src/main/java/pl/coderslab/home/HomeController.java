@@ -4,14 +4,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.form.FormService;
+import pl.coderslab.foundation.FoundationService;
 
 @Controller
 @RequestMapping("")
 public class HomeController {
-    FormService formService;
 
-    public HomeController(FormService formService) {
+    private FormService formService;
+    private FoundationService foundationService;
+
+    public HomeController(FormService formService, FoundationService foundationService) {
         this.formService = formService;
+        this.foundationService = foundationService;
     }
 
     @RequestMapping("")
@@ -22,5 +26,15 @@ public class HomeController {
     @ModelAttribute("numberOfBags")
     public Long getNumberOfBags() {
         return formService.numberOfBags();
+    }
+
+    @ModelAttribute("numberOfFoundations")
+    public Long getNumberOfFoundation() {
+        return foundationService.numberOfFoundation();
+    }
+
+    @ModelAttribute("numberOfDonations")
+    public Long getNumberOfDonations() {
+        return formService.numberOfDonations();
     }
 }

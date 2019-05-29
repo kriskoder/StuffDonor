@@ -19,4 +19,7 @@ public class FormService {
         return formRepository.numberOfBags();
     }
 
+    public Long numberOfDonations(){
+        return formRepository.count();
+    }
 }
