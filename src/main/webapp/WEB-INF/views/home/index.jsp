@@ -19,7 +19,6 @@
         </ul>
 
         <ul>
-            <li><a href="<c:url value="../"/>" class="btn btn--without-border active">Start</a></li>
             <li><a href="#steps" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="#about-us" class="btn btn--without-border">O nas</a></li>
             <li><a href="#help" class="btn btn--without-border">Fundacje i organizacje</a></li>
@@ -35,7 +34,7 @@
             </h1>
 
             <ul class="slogan--buttons">
-                <li><a href="#" class="btn btn--large">Oddaj rzeczy</a></li>
+                <li><a href="<c:url value="/form/user"/>" class="btn btn--large">Oddaj rzeczy</a></li>
                 <li><a href="#" class="btn btn--large">Zorganizuj zbiórkę</a></li>
             </ul>
         </div>
@@ -45,7 +44,7 @@
 <section class="stats">
     <div class="container container--85">
         <div class="stats--item">
-            <em>10</em>
+            <em>${numberOfBags}</em>
             <h3>Oddanych worków</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius est beatae, quod accusamus illum
                 tempora!</p>

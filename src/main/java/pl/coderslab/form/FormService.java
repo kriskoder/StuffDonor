@@ -15,4 +15,8 @@ public class FormService {
         formRepository.save(form);
     }
 
+    public Long numberOfBags(){
+        return formRepository.numberOfBags();
+    }
+
 }
