@@ -238,16 +238,19 @@ document.addEventListener("DOMContentLoaded", function () {
             this.$step.parentElement.hidden = this.currentStep >= 5;
 
             // TODO: get data from inputs and show them in summary
-            var bagsOf = document.querySelector("#bagsOf");
-            var numberOfBags = document.querySelector("input[name=bagsNumber]").value;
+            $('input[name=stuffType]').change( function() {
 
-            bagsOf.innerHTML = "Liczba wokrów: " + numberOfBags;
+                $('input[name=stuffType]:checked').each(function () {
+                    console.log($(this).siblings('.description').html());
+                    $('#stuffTypeSummary').append(($(this).siblings('.description').html() + " "));
+                });
+            });
 
-            // var forFoundation = document.querySelector("#forFoundation");
-            // var foundationName = document.querySelector("input[name=foundationId]:checked");
-            // forFoundation.innerHTML = foundationName.parentElement.querySelector(".title").innerHTML;
-
-
+            $('#street').change(function () {
+                console.log(this);
+                console.log($(this).val());
+                $('#streetSummary').html($(this).val());
+            });
         }
 
         /**

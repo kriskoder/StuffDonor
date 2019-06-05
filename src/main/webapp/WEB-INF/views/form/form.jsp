@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="<c:url value="/resources/js/app.js"/>" type="text/javascript"></script>
     <link rel="stylesheet" href=" <c:url value="/resources/css/style.css"/>"/>
 </head>
@@ -107,7 +108,7 @@
                 </c:forEach>
 
                 <div class="form-group form-group--buttons">
-                    <button type="button" class="btn next-step">Dalej</button>
+                    <button id="firstStepButton" type="button" class="btn next-step">Dalej</button>
                 </div>
             </div>
 
@@ -213,7 +214,10 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span id="bagsOf" class="summary--text"></span>
+                                <span id="bagsOf" class="summary--text">worków:
+                                <span id="quantitySummary"></span>
+                                <span id="stuffTypeSummary"></span>
+                                </span>
                             </li>
                             <li>
                                 <span class="icon icon-hand"></span>
@@ -226,7 +230,7 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
+                                <li id="streetSummary"></li>
                                 <li>Warszawa</li>
                                 <li>99-098</li>
                                 <li>123 456 789</li>
