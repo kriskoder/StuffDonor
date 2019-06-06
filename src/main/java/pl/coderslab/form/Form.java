@@ -37,5 +37,5 @@ public class Form {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
     private LocalTime pickUpTime;
-    private String notes;
+    private String pickUpComment;
 }

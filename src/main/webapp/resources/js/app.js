@@ -239,17 +239,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // TODO: get data from inputs and show them in summary
             $('input[name=stuffType]').change( function() {
-
                 $('input[name=stuffType]:checked').each(function () {
                     console.log($(this).siblings('.description').html());
                     $('#stuffTypeSummary').append(($(this).siblings('.description').html() + " "));
                 });
             });
 
+            $("#bagsNumber").change(function () {
+                console.log($(this).val());
+                $('#bagsNumberSummary').html($(this).val());
+            });
+
+            $('input[name=foundationId]').change(function () {
+               console.log($('input[name=foundationId]:checked').next().html());
+               $('#foundationSummary').html(" " + $('input[name=foundationId]:checked').next().html());
+            });
+
             $('#street').change(function () {
                 console.log(this);
                 console.log($(this).val());
                 $('#streetSummary').html($(this).val());
+            });
+
+            $('#city').change(function () {
+                console.log(this);
+                console.log($(this).val());
+                $('#citySummary').html($(this).val());
+            });
+            $('#zipCode').change(function () {
+                console.log(this);
+                console.log($(this).val());
+                $('#zipCodeSummary').html($(this).val());
+            });
+            $('#phone').change(function () {
+                console.log(this);
+                console.log($(this).val());
+                $('#phoneSummary').html($(this).val());
+            });
+            $('#pickUpDate').change(function () {
+                console.log(this);
+                console.log($(this).val());
+                $('#pickUpDateSummary').html($(this).val());
+            });
+            $('#pickUpTime').change(function () {
+                console.log(this);
+                console.log($(this).val());
+                $('#pickUpTimeSummary').html($(this).val());
+            });
+            $('#pickUpComment').change(function () {
+                console.log(this);
+                console.log($(this).val());
+                $('#pickUpCommentSummary').html($(this).val());
             });
         }
 

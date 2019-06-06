@@ -135,6 +135,7 @@
                     <div class="form-group form-group--checkbox">
                         <label>
                             <input type="radio" name="foundationId" value="${var.id}"/>
+                            <span hidden>"${var.name}"</span>
                             <span class="checkbox radio"></span>
                             <span class="description">
                                 <div class="title">Fundacja: "${var.name}"</div>
@@ -167,7 +168,7 @@
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input type="text" name="postcode" path="zipCode"/>
+                                Kod pocztowy <form:input type="text" name="zipCode" path="zipCode"/>
                             </label>
                         </div>
 
@@ -182,7 +183,7 @@
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
                             <label> Data
-                                <form:input type="date" name="data" path="pickUpDate"/></label>
+                                <form:input type="date" name="date" path="pickUpDate"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -193,7 +194,7 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea name="more_info" path="notes" rows="5"/>
+                                <form:textarea name="pickUpComment" path="pickUpComment" rows="5"/>
                             </label>
                         </div>
                     </div>
@@ -215,13 +216,14 @@
                             <li>
                                 <span class="icon icon-bag"></span>
                                 <span id="bagsOf" class="summary--text">worków:
-                                <span id="quantitySummary"></span>
+                                <span id="bagsNumberSummary"></span>
                                 <span id="stuffTypeSummary"></span>
                                 </span>
                             </li>
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span id="forFoundation" class="summary--text">Dla fundacji "Mam marzenie" w Warszawie</span>
+                                <span class="summary--text">Dla fundacji:</span>
+                                <span id="foundationSummary" class="summary--text"></span>
                             </li>
                         </ul>
                     </div>
@@ -231,18 +233,18 @@
                             <h4>Adres odbioru:</h4>
                             <ul>
                                 <li id="streetSummary"></li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="citySummary"></li>
+                                <li id="zipCodeSummary"></li>
+                                <li id="phoneSummary"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="pickUpDateSummary"></li>
+                                <li id="pickUpTimeSummary"></li>
+                                <li id="pickUpCommentSummary"></li>
                             </ul>
                         </div>
                     </div>
