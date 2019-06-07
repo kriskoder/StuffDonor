@@ -215,10 +215,9 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span id="bagsOf" class="summary--text">worków:
                                 <span id="bagsNumberSummary"></span>
+                                <span id="bagsOf" class="summary--text">&nbsp; worków z rzeczami: &nbsp;</span>
                                 <span id="stuffTypeSummary"></span>
-                                </span>
                             </li>
                             <li>
                                 <span class="icon icon-hand"></span>

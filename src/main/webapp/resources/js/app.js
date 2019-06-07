@@ -239,9 +239,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // TODO: get data from inputs and show them in summary
             $('input[name=stuffType]').change( function() {
+                $('#stuffTypeSummary').html("");
                 $('input[name=stuffType]:checked').each(function () {
                     console.log($(this).siblings('.description').html());
-                    $('#stuffTypeSummary').append(($(this).siblings('.description').html() + " "));
+                    $('#stuffTypeSummary').append(($(this).siblings('.description').html() + ", "));
                 });
             });
 
