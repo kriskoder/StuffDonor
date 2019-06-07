@@ -4,10 +4,10 @@
     <title>Title</title>
 </head>
 <body>
-<jsp:include page="../../resources/admin/header.jsp"/>
+<jsp:include page="../../../resources/admin/header.jsp"/>
 
-<!-- main content -->
 
-<jsp:include page="../../resources/admin/footer.jsp"/>
+
+<jsp:include page="../../../resources/admin/footer.jsp"/>
 </body>
 </html>

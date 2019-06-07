@@ -9,6 +9,6 @@ public class AdminController {
 
     @RequestMapping("")
     public String adminHome() {
-        return "admin/admin";
+        return "admin/home/admin";
     }
 }

@@ -31,7 +31,7 @@ public class FormController {
         model.addAttribute("username", currentUser.getUsername());
         model.addAttribute("form", new Form());
         model.addAttribute("foundations", foundationService.findAllFoundations());
-        return "form/form";
+        return "user/form/form";
     }
 
     @PostMapping("")
@@ -39,6 +39,6 @@ public class FormController {
         form.setUser(userServiceImpl.findUserbyId(currentUser.getUser().getId()));
         form.setFoundation(foundationService.findById(id));
         formService.save(form);
-        return "form/form-confirmation";
+        return "user/form/form-confirmation";
     }
 }

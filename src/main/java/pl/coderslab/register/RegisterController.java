@@ -25,13 +25,13 @@ public class RegisterController {
     @GetMapping("")
     public String register(@Valid Model model) {
         model.addAttribute("user", new User());
-        return "register/register";
+        return "user/register/register";
     }
 
     @PostMapping("")
     public String register(@Valid @ModelAttribute User user, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return "register/register";
+            return "user/register/register";
         }
         userServiceImpl.saveUser(user);
         return "redirect:/login";

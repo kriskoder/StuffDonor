@@ -23,7 +23,7 @@ public class HomeController {
 
     @RequestMapping("")
     public String home() {
-        return "home/index";
+        return "user/home/index";
     }
 
     @ModelAttribute("numberOfBags")

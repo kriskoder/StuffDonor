@@ -24,4 +24,8 @@ public class FoundationService {
     public Long numberOfFoundation() {
         return foundationRepository.count();
     }
+    
+    public void deleteById(Long id){
+        foundationRepository.deleteById(id);
+    }
 }

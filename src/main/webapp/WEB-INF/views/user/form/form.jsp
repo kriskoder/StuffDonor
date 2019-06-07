@@ -28,7 +28,7 @@
         </ul>
 
         <ul>
-            <li><a href="<c:url value="../"/>" class="btn btn--without-border active">Start</a></li>
+            <li><a href="<c:url value="../.."/>" class="btn btn--without-border active">Start</a></li>
             <li><a href="#" class="btn btn--without-border">O co chodzi?</a></li>
             <li><a href="#" class="btn btn--without-border">O nas</a></li>
             <li><a href="#" class="btn btn--without-border">Fundacje i organizacje</a></li>
@@ -258,7 +258,7 @@
     </div>
 </section>
 
-<%@include file="../../resources/user/footer.jsp"%>
+<%@include file="../../../resources/user/footer.jsp"%>
 
 </body>
 </html>
