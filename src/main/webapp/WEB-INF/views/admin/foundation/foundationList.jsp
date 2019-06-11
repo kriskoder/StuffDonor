@@ -21,15 +21,14 @@
         <tr>
             <td>${foundation.id}</td>
             <td>${foundation.name}</td>
-            <td>${foundation.description}d>
-            <td>Edit</td>
+            <td>${foundation.description}</td>
+            <td><a href="/admin/foundation/update/${foundation.id}"/>Edit</td>
             <td>
                 <a href="/admin/foundation/delete/${foundation.id}">Delete</a>
             </td>
         </tr>
     </c:forEach>
     </tbody>
-
 </table>
 
 <jsp:include page="../../../resources/admin/footer.jsp"/>

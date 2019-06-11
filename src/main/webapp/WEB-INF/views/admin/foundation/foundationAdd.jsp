@@ -25,7 +25,7 @@
         <form:errors path="text" cssClass="error"/>
     </div>
     <div>
-        <button type="submit">Dodaj</button>
+        <button type="submit">Zapisz</button>
     </div>
 </form:form>
 

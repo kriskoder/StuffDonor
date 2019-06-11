@@ -3,6 +3,7 @@ package pl.coderslab.foundation;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,7 +21,7 @@ public class FoundationController {
     @RequestMapping("read")
     public String foundationRead(Model model) {
         model.addAttribute("foundationList", foundationService.findAllFoundations());
-        return "admin/foundation/foundation";
+        return "admin/foundation/foundationList";
     }
 
     @GetMapping("add")
@@ -30,7 +31,22 @@ public class FoundationController {
     }
 
     @PostMapping("add")
-    public String foundationAdd(@Valid @ModelAttribute Foundation foundation, BindingResult bindingResult){
+    public String foundationAdd(@ModelAttribute @Validated Foundation foundation, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "admin/foundation/foundationAdd";
+        }
+        foundationService.saveFoundation(foundation);
+        return "redirect:/admin/foundation/read";
+    }
+
+    @GetMapping("update/{id}")
+    public  String update(@PathVariable Long id, Model model){
+        model.addAttribute("foundationAdd", foundationService.findById(id));
+        return "admin/foundation/foundationAdd";
+    }
+
+    @PostMapping("update/{id}")
+    public String update(@ModelAttribute @Validated Foundation foundation, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "admin/foundation/foundationAdd";
         }
