@@ -6,7 +6,7 @@
 </head>
 <body>
 <jsp:include page="../../../resources/admin/header.jsp"/>
-<span><a href="/admin/foundation/add">Add foundation</a></span>
+<span><a href="/admin/user/add">Add user</a></span>
 <table border="2px">
     <thead>
     <tr>

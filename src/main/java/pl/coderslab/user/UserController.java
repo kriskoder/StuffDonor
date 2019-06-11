@@ -5,21 +5,26 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.role.Role;
+import pl.coderslab.role.RoleService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("admin/user")
 public class UserController {
 
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
+    private RoleService roleService;
 
-    public UserController(UserServiceImpl userService) {
+    public UserController(UserServiceImpl userService, RoleService roleService) {
         this.userService = userService;
+        this.roleService = roleService;
     }
 
     @RequestMapping("read")
-    public String readUsers(Model model){
+    public String readUsers(Model model) {
         model.addAttribute("userList", userService.findAllUsers());
         return "/admin/user/userList";
     }
@@ -31,8 +36,8 @@ public class UserController {
     }
 
     @PostMapping("add")
-    public String foundationAdd(@ModelAttribute @Validated User user, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+    public String foundationAdd(@ModelAttribute @Validated User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return "admin/user/UserAdd";
         }
         userService.saveUser(user);
@@ -40,14 +45,14 @@ public class UserController {
     }
 
     @GetMapping("update/{id}")
-    public  String update(@PathVariable Long id, Model model){
+    public String update(@PathVariable Long id, Model model) {
         model.addAttribute("userAdd", userService.findUserbyId(id));
         return "admin/user/userAdd";
     }
 
     @PostMapping("update/{id}")
-    public String update(@ModelAttribute @Validated User user, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+    public String update(@ModelAttribute @Validated User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             return "admin/user/userAdd";
         }
         userService.saveUser(user);
@@ -55,10 +60,13 @@ public class UserController {
     }
 
     @RequestMapping("delete/{id}")
-    public String deleteUser(@PathVariable Long id){
+    public String deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return "redirect:/admin/user/read";
     }
 
-
+    @ModelAttribute("roleList")
+    public List<Role> getRoles() {
+        return roleService.getRoles();
+    }
 }
