@@ -127,10 +127,10 @@
                 <ul class="nav" id="side-menu">
 
                     <li>
-                        <a href="<c:url value="/admin/foundation/read"/>">Foundation list</a>
+                        <a href="<c:url value="/admin/foundation/read"/>">Foundations list</a>
                     </li>
                     <li>
-                        <a href="#">Dashboard</a>
+                        <a href="<c:url value="/admin/user/read"/>">Users list</a>
                     </li>
 
                 </ul>
