@@ -57,9 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        /**
-         * TODO: callback to page change event
-         */
         changePage(e) {
             e.preventDefault();
             const page = e.target.dataset.page;
@@ -224,8 +221,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateForm() {
             this.$step.innerText = this.currentStep;
 
-            // TODO: Validation
-
             this.slides.forEach(slide => {
                 slide.classList.remove("active");
 
@@ -237,8 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
             this.$step.parentElement.hidden = this.currentStep >= 5;
 
-            // TODO: get data from inputs and show them in summary
-            $('input[name=stuffType]').change( function() {
+            $('input[name=stuffType]').change(function () {
                 $('#stuffTypeSummary').html("");
                 $('input[name=stuffType]:checked').each(function () {
                     console.log($(this).siblings('.description').html());
@@ -252,8 +246,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             $('input[name=foundationId]').change(function () {
-               console.log($('input[name=foundationId]:checked').next().html());
-               $('#foundationSummary').html(" " + $('input[name=foundationId]:checked').next().html());
+                console.log($('input[name=foundationId]:checked').next().html());
+                $('#foundationSummary').html(" " + $('input[name=foundationId]:checked').next().html());
             });
 
             $('#street').change(function () {
@@ -294,11 +288,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        /**
-         * Submit form
-         *
-         * TODO: validation, send data to server
-         */
         submit(e) {
             // e.preventDefault();
             this.currentStep++;
@@ -310,4 +299,23 @@ document.addEventListener("DOMContentLoaded", function () {
     if (form !== null) {
         new FormSteps(form);
     }
+
+  $('#messageFormSubmit').on('click', function (event) {
+      event.preventDefault();
+      var messageName = $('#messageName').val();
+      var messageEmail = $('#messageEmail').val();
+      var messageText = $('#messageText').val();
+      console.log(messageName, messageEmail, messageText);
+      data = {name: messageName, email: messageEmail, message: messageText};
+      dataReadyForJson = JSON.stringify(data);
+      console.log(dataReadyForJson);
+
+      $.ajax({
+          url: "http://localhost:8080/message/create",
+          type: "post",
+          datatype: "json",
+          data: dataReadyForJson,
+          contentType: "application/json"
+      });
+  });
 });
