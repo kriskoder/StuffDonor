@@ -19,6 +19,6 @@ public class MessageController {
     @PostMapping("/create")
     public String create(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("message") String message) {
         messageService.save(name, email, message);
-        return "../form";
+        return "redirect:../";
     }
 }

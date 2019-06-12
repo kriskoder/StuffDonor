@@ -299,23 +299,4 @@ document.addEventListener("DOMContentLoaded", function () {
     if (form !== null) {
         new FormSteps(form);
     }
-
-  $('#messageFormSubmit').on('click', function (event) {
-      event.preventDefault();
-      var messageName = $('#messageName').val();
-      var messageEmail = $('#messageEmail').val();
-      var messageText = $('#messageText').val();
-      console.log(messageName, messageEmail, messageText);
-      data = {name: messageName, email: messageEmail, message: messageText};
-      dataReadyForJson = JSON.stringify(data);
-      console.log(dataReadyForJson);
-
-      $.ajax({
-          url: "http://localhost:8080/message/create",
-          type: "post",
-          datatype: "json",
-          data: dataReadyForJson,
-          contentType: "application/json"
-      });
-  });
 });
