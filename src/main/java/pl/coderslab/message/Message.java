@@ -1,8 +1,11 @@
 package pl.coderslab.message;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name="message")
@@ -18,4 +21,8 @@ public class Message {
     private String name;
     private String email;
     private String message;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate created;
+    @ColumnDefault("false")
+    private boolean answered;
 }
