@@ -41,4 +41,10 @@ public class FormController {
         formService.save(form);
         return "user/form/form-confirmation";
     }
+
+    @RequestMapping("/admin/read")
+    public String readAll(Model model){
+        model.addAttribute("formList", formService.readAllForms());
+        return "admin/form/formRead";
+    }
 }

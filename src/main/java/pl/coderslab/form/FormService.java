@@ -2,6 +2,8 @@ package pl.coderslab.form;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FormService {
 
@@ -21,5 +23,9 @@ public class FormService {
 
     public Long numberOfDonations(){
         return formRepository.count();
+    }
+
+    public List<Form> readAllForms(){
+        return formRepository.findAll();
     }
 }

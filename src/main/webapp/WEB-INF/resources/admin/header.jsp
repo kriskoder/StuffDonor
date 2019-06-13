@@ -85,6 +85,9 @@
                     <li>
                         <a href="<c:url value="/message/admin/read"/>">Messages</a>
                     </li>
+                    <li>
+                        <a href="<c:url value="/form/admin/read"/>">Forms</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
