@@ -22,6 +22,7 @@
         <td>pickUpDate</td>
         <td>pickUpTime</td>
         <td>pickUpComment</td>
+        <td>Optional</td>
     </tr>
     </thead>
     <tbody>
@@ -43,6 +44,7 @@
             <td>${form.pickUpDate}</td>
             <td>${form.pickUpTime}</td>
             <td>${form.pickUpComment}</td>
+            <td><a href="../form/admin/delete">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>
