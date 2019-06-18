@@ -47,4 +47,10 @@ public class FormController {
         model.addAttribute("formList", formService.readAllForms());
         return "admin/form/formRead";
     }
+
+    @RequestMapping("/admin/delete/{id}")
+    public String delete(@PathVariable Long id){
+        formService.deleteForm(id);
+        return "redirect:/form/admin/read";
+    }
 }

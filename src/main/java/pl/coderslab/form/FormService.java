@@ -7,25 +7,29 @@ import java.util.List;
 @Service
 public class FormService {
 
-   private FormRepository formRepository;
+    private FormRepository formRepository;
 
     public FormService(FormRepository formRepository) {
         this.formRepository = formRepository;
     }
 
-    public void save(Form form){
+    public void save(Form form) {
         formRepository.save(form);
     }
 
-    public Long numberOfBags(){
+    public Long numberOfBags() {
         return formRepository.numberOfBags();
     }
 
-    public Long numberOfDonations(){
+    public Long numberOfDonations() {
         return formRepository.count();
     }
 
-    public List<Form> readAllForms(){
+    public void deleteForm(Long id) {
+        formRepository.deleteById(id);
+    }
+
+    public List<Form> readAllForms() {
         return formRepository.findAll();
     }
 }

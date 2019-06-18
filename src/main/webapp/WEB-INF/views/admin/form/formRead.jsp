@@ -44,7 +44,7 @@
             <td>${form.pickUpDate}</td>
             <td>${form.pickUpTime}</td>
             <td>${form.pickUpComment}</td>
-            <td><a href="../form/admin/delete">Delete</a></td>
+            <td><a href="/form/admin/delete/${form.id}">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>
